@@ -18,7 +18,6 @@ def pregunta_12():
     from homework.load_data import loadData
 
     data = loadData()
-
     dicRta = {}
 
     for linea in data:
