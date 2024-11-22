@@ -26,3 +26,17 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+
+    meses = {}
+
+    for fila in data:
+        mes = fila[2].split("-")[1]
+        if mes not in meses:
+            meses[mes] = 1
+        else:
+            meses[mes] += 1
+
+    return sorted(meses.items())

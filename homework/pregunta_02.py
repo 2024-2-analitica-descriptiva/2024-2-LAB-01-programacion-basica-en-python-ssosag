@@ -15,3 +15,16 @@ def pregunta_02():
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+    letras = {}
+
+    for fila in data:
+        letra = fila[0]
+        if letra not in letras:
+            letras[letra] = 1
+        else:
+            letras[letra] += 1
+
+    return sorted(letras.items())

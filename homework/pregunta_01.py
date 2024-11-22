@@ -14,3 +14,8 @@ def pregunta_01():
     214
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+
+    return sum([int(fila[1]) for fila in data])

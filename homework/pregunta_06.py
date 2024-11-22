@@ -26,3 +26,25 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+    dicMinMax = {}
+
+    for fila in data:
+        dic = fila[4].split(",")
+
+        for claveValor in dic:
+            clave, valor = claveValor.split(":")
+            valor = int(valor)
+
+            if clave not in dicMinMax:
+                dicMinMax[clave] = [valor, valor]
+            else:
+                if valor < dicMinMax[clave][0]:
+                    dicMinMax[clave][0] = valor
+                if valor > dicMinMax[clave][1]:
+                    dicMinMax[clave][1] = valor
+    return sorted(
+        [(clave, minimo, maximo) for clave, (minimo, maximo) in dicMinMax.items()]
+    )

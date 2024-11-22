@@ -16,3 +16,18 @@ def pregunta_11():
 
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+    dic = {}
+
+    for linea in data:
+        numero = int(linea[1])
+        letras = linea[3].split(",")
+
+        for letra in letras:
+            if letra not in dic:
+                dic[letra] = numero
+            else:
+                dic[letra] += numero
+    return dict(sorted(dic.items()))

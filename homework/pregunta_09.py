@@ -24,3 +24,23 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+
+    from homework.load_data import loadData
+
+    data = loadData()
+    dicRta = {}
+
+    for fila in data:
+        dic = fila[4].split(",")
+
+        for claveValor in dic:
+            clave, valor = claveValor.split(":")
+            valor = int(valor)
+
+            if clave not in dicRta:
+                dicRta[clave] = 1
+
+            else:
+                dicRta[clave] += 1
+
+    return dict(sorted(dicRta.items()))

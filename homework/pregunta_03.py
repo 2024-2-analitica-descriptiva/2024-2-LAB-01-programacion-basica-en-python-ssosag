@@ -15,3 +15,17 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+    letras = {}
+
+    for fila in data:
+        letra = fila[0]
+        numero = int(fila[1])
+        if letra not in letras:
+            letras[letra] = numero
+        else:
+            letras[letra] += numero
+
+    return sorted(letras.items())

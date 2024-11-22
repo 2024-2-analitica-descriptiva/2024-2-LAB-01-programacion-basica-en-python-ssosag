@@ -25,3 +25,18 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    from homework.load_data import loadData
+
+    numeroLetra = {}
+
+    data = loadData()
+
+    for fila in data:
+        letra = fila[0]
+        numero = int(fila[1])
+        if numero not in numeroLetra:
+            numeroLetra[numero] = [letra]
+        else:
+            numeroLetra[numero].append(letra)
+
+    return sorted(numeroLetra.items())

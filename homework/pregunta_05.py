@@ -15,3 +15,23 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+
+    letras = {}
+
+    for fila in data:
+        letra = fila[0]
+        numero = int(fila[1])
+
+        if letra not in letras:
+            letras[letra] = [numero, numero]
+        else:
+            if numero > letras[letra][0]:
+                letras[letra][0] = numero
+            if numero < letras[letra][1]:
+                letras[letra][1] = numero
+    return sorted(
+        [(letra, maximo, minimo) for letra, (maximo, minimo) in letras.items()]
+    )

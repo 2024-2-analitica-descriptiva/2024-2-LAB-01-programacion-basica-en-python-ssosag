@@ -20,3 +20,10 @@ def pregunta_10():
 
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+
+    return [
+        (linea[0], len(linea[3].split(",")), len(linea[4].split(","))) for linea in data
+    ]

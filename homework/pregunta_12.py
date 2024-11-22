@@ -15,3 +15,26 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    from homework.load_data import loadData
+
+    data = loadData()
+
+    dicRta = {}
+
+    for linea in data:
+        letra = linea[0]
+        dic = linea[4].split(",")
+        suma = 0
+        for claveValor in dic:
+            _, valor = claveValor.split(":")
+            suma += int(valor)
+
+        if letra not in dicRta:
+            dicRta[letra] = suma
+        else:
+            dicRta[letra] += suma
+
+    return dict(sorted(dicRta.items()))
+
+
+print(pregunta_12())
